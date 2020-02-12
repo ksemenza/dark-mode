@@ -4,11 +4,14 @@ import axios from "axios";
 
 import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
+import useLocalStorage from './hooks/useLocalStorage';
 
 import "./styles.scss";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
+  //Passing Hook as creating call back using localStorage 
+  const [strokeColor, setStrokeColor] = useLocalStorage('strokeColor' , '#8884d8')
 
   useEffect(() => {
     axios
@@ -20,7 +23,8 @@ const App = () => {
   }, []);
   return (
     <div className="App">
-      <Navbar />
+      {/* passing value to view */}
+      <Navbar strokeColor={strokeColor} setStrokeColor={setStrokeColor} />
       <Charts coinData={coinData} />
     </div>
   );
