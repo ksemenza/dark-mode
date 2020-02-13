@@ -29,7 +29,7 @@ const Coins =({ strokeColor}) => {
     const handleSubmit = e => {
         e.preventDefault();
         setCoinChoice(e.target.coinType.value);
-        console.log(e.target.coinType.value);
+        // console.log(e.target.coinType.value);
     }
 
     const formatMoney = (amount, decimalCount = 2, decimal = ".", thousands = ",") => {
@@ -51,7 +51,7 @@ const Coins =({ strokeColor}) => {
     return (
         
         <div>
-            
+        <div  className='coin-wrap'>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='coinType'>Choose a Coin:</label>
                 <select id='coinType' name='coinType'>
@@ -74,11 +74,14 @@ const Coins =({ strokeColor}) => {
                     <h3><span className='bold'>Market Cap:</span> ${formatMoney(coinInfo.market_data.market_cap.usd)} usd</h3>
                     
                     </div>
-                    : null}
-                {coinInfo.links? <a href={coinInfo.links.homepage[0]}>{coinInfo.links.homepage[0]}</a> : null}
-                {coinInfo.description? <div><p>{coinInfo.description.en}</p></div> : null }
+                    : null}<div className="desc-wrap">
+                {coinInfo.links? <a  href={coinInfo.links.homepage[0]}>{coinInfo.links.homepage[0]}</a> : null}
+                {coinInfo.description? <div className="coin-a"><p>{coinInfo.description.en}</p></div> : null }
+                </div>
             </div>
-            {coinInfo.market_data? <Chart sparklineData={coinInfo.market_data.sparkline_7d.price} strokeColor={strokeColor} /> : null }
+            </div>
+          <div className='chart-wrap'> {coinInfo.market_data? <Chart sparklineData={coinInfo.market_data.sparkline_7d.price} strokeColor={strokeColor} /> : null }
+          </div> 
             
         </div>
     )
