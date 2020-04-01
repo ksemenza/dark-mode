@@ -6,6 +6,7 @@ const useDarkMode = () => {
 
     useEffect(() => {
         const bodySel = document.querySelector('body');
+
         if (dark === true) {
             bodySel.classList.add('dark-mode');
         } else {

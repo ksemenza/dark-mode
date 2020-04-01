@@ -164,7 +164,7 @@ img {
 .App {
   font-family: sans-serif;
   text-align: center;
-  width: 100%;
+  width: fit-content;
 }
 
 .navbar {
@@ -287,4 +287,19 @@ p {
 
 .coin-a  {
   margin-top: 18px;
+}
+
+.toggle-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-label{
+  margin-right: 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.recharts-wrapper {
+  margin-right: 55px;
 }
